@@ -11,7 +11,7 @@ use app\models\Test;
 class TestController extends Controller{
 
 	public function actionIndex(){
-		echo 'Hello Word';
+		//echo 'Hello Word';
 
 
 		//$this->redirect(['site/index']);
@@ -25,10 +25,41 @@ class TestController extends Controller{
                // $article = new Article();
                // $article = Article::findOne(1);
                 // var_dump($article);
-                $test = new Test();
+                //$test = new Test();
                 
-                var_dump($test);
-		return $this->render('index' , ['data' => [1,2,3]]);
+                //var_dump($test);
+                
+                ;//============Request 组件
+//                var_dump(\Yii::$app->request);//Request 组件
+//                var_dump(\Yii::$app->request->isAjax);die;
+//                var_dump(\Yii::$app->request->isPost);die;
+//                var_dump(\Yii::$app->request->userAgent);die;
+//                var_dump(\Yii::$app->request->get()).'<br/>';
+//                
+//                var_dump(\Yii::$app->request->userIp).'<br/>';
+//                
+//                var_dump(\Yii::$app->request->get('r')).'<br/>';
+//                
+//                var_dump(\Yii::$app->request->post()).'<br/>';
+//                var_dump(\Yii::$app->request->post('r')).'<br/>';
+//                die;
+//                
+//                
+//                $model = new \app\models\Article();                var_dump($model);
+
+                if(\Yii::$app->request->isPost){
+                    header('Content-type:text/html;charset=utf-8');
+                    var_dump(\Yii::$app->request->post());			
+                    //exit();
+                }
+                $html = '<b>hello .</b>';
+                $thtml = \yii\helpers\Html::encode($html);
+                echo $thtml;
+                 $thtml = \yii\helpers\Html::decode($html);
+                  echo $thtml;
+                $model =  \app\models\Article::findOne(1); 
+                return $this->render('article' , ['model' => $model]);
+                //return $this->render('index' , ['data' => [1,2,3]]);
 
 		//return $this->renderPartial('index' , ['data' => [1,2,3]]);
 
