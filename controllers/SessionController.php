@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 use yii\web\Controller;
-
+use yii\web\Cookie;
 class SessionController extends Controller{
     public function  actionIndex()
     {
@@ -33,5 +33,23 @@ class SessionController extends Controller{
 //        $session['user'] = "张三";// 设置session值
         echo $session['user']; //取出session数据
 //        unset($session['user']);//通过unset 来删除session        
+    }
+    public function actionCookie(){
+//        浏览器响应的时候添加cookie，请求的时候获取cookie
+        // 添加cookie
+        $cookies = \YII::$app->response->cookies;
+        $cookie_data = array('name'=>'user', 'value'=>'zhangsan');
+        //$cookies->add(new Cookie($cookie_data));
+        //echo $cookies->getValue('user'); 获取cookie值
+        // 删除cookie
+       // $cookies->remove('user');
+
+//        获取请求时cookies
+        $cookies = \YII::$app->request->cookies;
+        var_dump($cookies);
+         echo   $cookies->getValue('users', 20);//获取不存在的cookie时，可以指定一个值输出
+        
+        
+        
     }
 }
