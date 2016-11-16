@@ -13,6 +13,6 @@ class ViewController extends Controller{
         $hello_str = 'Hello God!<script>alert(3);</script>';
         $data = array();
         $data['view_hello_str'] = $hello_str;
-        return $this->renderPartial('index',$data);
+        return $this->render('index',$data);
     }
 }
