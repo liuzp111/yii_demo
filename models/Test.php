@@ -16,8 +16,10 @@ class Test extends Model
 	public $sex;
 	public $pt;
 	public $str;
-
-	public function rules(){
+        public $id;
+        public $title;
+        public $content;
+        public function rules(){
 		return [
 			//['username' , 'required' , 'message' => '用户名不能为空'],
 			//['password' , 'required' , 'message' => '密码不能为空'],
@@ -33,6 +35,9 @@ class Test extends Model
 			['str' , 'string' , 'min' => 2 , 'max' => 10 , 'tooShort' => '不能小于2位' , 'tooLong' => '不能大于10位'],
 			//[['username' , 'password'] , 'safe'],
 			['username' , 'checkUsername' , 'params' => ['message' => '不是等于smister']],
+                        ['id','integer'],//Yii提供了一个验证器(每个验证器都是一个类)的东西，比如integer验证器。
+                        ['title','string','length'=>[0,5]],
+                        ['content','string','length'=>[0,5]],
 		];
 	}
 

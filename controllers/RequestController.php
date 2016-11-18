@@ -72,31 +72,6 @@ class TestController extends Controller{
 		echo 'Show User';
 	}
 
-	public function actionValidate(){
-
-            $data = [
-                    'Test' => [
-                            'username' => '',
-                            'password' => '123456',
-                            'repassword' => '123456',
-                            'age' => 3,
-                            'number' => 3,
-                            'email' => 'smister@qq.com',
-                            'sex' => 'nv',
-                            'pt' => 'mrs12',
-                            'str' => 'smister'
-                    ]
-            ];
-            $test = new \app\models\Test();
-          
-            $test->load($data);
-            //  var_dump($test);
-            if(!$test->validate()){
-                    //获取错误
-                    var_dump($test->getErrors());
-            }            
-        }
-
 }
 
 
