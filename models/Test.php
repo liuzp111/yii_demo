@@ -23,7 +23,7 @@ class Test extends Model
 		return [
 			//['username' , 'required' , 'message' => '用户名不能为空'],
 			//['password' , 'required' , 'message' => '密码不能为空'],
-			[['password' , 'username'] , 'required' , 'message' => '不能为空'],
+			[['password' , 'username'] , 'required' , 'message' => '测试不能为空'],
 			//['password' , 'compare' , 'compareValue' => '123456' , 'message' => '不等于123456']
 			['password' , 'compare' , 'compareAttribute' => 'repassword' , 'message' => '两次密码不一致'],
 			['repassword' , 'safe'],

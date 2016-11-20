@@ -47,9 +47,75 @@ class SessionController extends Controller{
 //        获取请求时cookies
         $cookies = \YII::$app->request->cookies;
         var_dump($cookies);
-         echo   $cookies->getValue('users', 20);//获取不存在的cookie时，可以指定一个值输出
-        
-        
-        
+         echo   $cookies->getValue('users', 20);//获取不存在的cookie时，可以指定一个值输出  
     }
+        /**
+         * cookie和session学习
+         */
+	public function actionCookie2(){
+
+            //第一种定义的cookie的方式
+//            $cookie = new Cookie();
+//            $cookie -> name = 'mrs_name';
+//            $cookie -> expire = time() + 86400;////存活的时间
+//            $cookie -> httpOnly = true;//无法通过 js 读取 cookie
+//            $cookie -> value = 'smister';
+//
+//            \Yii::$app->response->getCookies()->add($cookie);
+
+
+
+
+		//第二种定义的cookie的方式
+//		$cookie = new \yii\web\Cookie([
+//			'name' => 'mrs_name',
+//			'expire' => time() + 86400,
+//			'httpOnly' => true,
+//			'value' => 'smister1'
+//		]);
+//
+//		\Yii::$app->response->getCookies()->add($cookie);
+
+
+//		$cookies = \Yii::$app->request->cookies;
+
+//		var_dump($cookies->get('mrs_name'));//返回一个\yii\web\Cookie 对象
+//		var_dump($cookies->getValue('mrs_name'));//直接返回 Cookie 的值
+//		var_dump($cookies->has('mrs_name'));//判断一个 Cookie 是否存在
+
+//		var_dump($cookies->count());
+//		var_dump($cookies->getCount());//读取 Cookie 的总数
+
+
+//		$cookies = \Yii::$app->request->cookies;
+//		$ck = $cookies->get('mrs_name');
+//		var_dump(\Yii::$app->response->getCookies()->remove($ck)); //null
+//		var_dump($cookies->has('mrs_name')); ///false
+
+		//\Yii::$app->response->getCookies()->removeAll();
+		//var_dump($cookies->count());
+
+
+//		$session = \Yii::$app->session;
+//
+//		$session->set('mrs_name' , 'smister');
+//		$session->set('mrs_array' , [1,2,3]);
+//
+//		var_dump($session->get('mrs_name'));
+
+//
+//		var_dump($session->get('mrs_name'));
+//		var_dump($session->get('mrs_array'));
+
+		//$session->remove('mrs_name');
+		//var_dump($session->get('mrs_name'));
+
+//		$session->removeAll();
+//
+//		var_dump($session->get('mrs_name'));
+//		var_dump($session->get('mrs_array'));
+
+
+
+	}    
 }
