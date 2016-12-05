@@ -3,6 +3,19 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+    'bootstrap' => ['debug'],
+    'modules' => [
+        'debug' => [
+            'class' => 'yii\debug\Module',
+        ],
+        // ...
+    ],
+    
+   'modules' => [
+        'article' => [
+            'class' => 'app\modules\article\article',
+        ],
+    ],    
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],

@@ -10,7 +10,7 @@ use app\models\Test;
         /**
          * 模型验证
          */
-class ValidateController extends \yii\web\Controller
+class ValidateController extends Controller
 {
 
 
